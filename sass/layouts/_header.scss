@@ -1,0 +1,115 @@
+.header {
+    position: relative;
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+        url(../images/image-hero-desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    margin: 0 15rem;
+    @include respond(tab-port) {
+        margin: 0 10rem;
+    }
+
+    &__logo--img {
+        width: 20rem;
+    }
+
+    &__links {
+        transition: 0.5s all;
+        position: relative;
+        display: flex;
+        font-size: 2rem;
+        font-weight: 700;
+        :not(:last-child) {
+            margin-right: 5rem;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            &:hover {
+                color: $Dark-gray;
+            }
+        }
+        li {
+            list-style: none;
+            @include respond(tab-port) {
+                font-size: 3rem;
+                width: 100%;
+                padding: 3.5rem;
+                padding-bottom: 5rem;
+            }
+            @include respond(phone) {
+                &:not(:last-child) {
+                    border-bottom: 0.2rem solid $Dark-gray;
+                }
+            }
+        }
+        @include respond(phone) {
+            position: fixed;
+            height: 30vh;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            top: 0;
+            right: -100rem;
+            max-width: 80%;
+            border-radius: 2rem;
+            flex-direction: column;
+            display: none;
+        }
+    }
+}
+.hidden {
+    .navbar__links {
+        display: block;
+        right: 7rem;
+        top: 10%;
+        // display: none;
+        a {
+            color: $Black;
+        }
+    }
+    .hamburger {
+        span:nth-child(1) {
+            transform: rotate((-45deg));
+            top: 0;
+        }
+        span:nth-child(2) {
+            opacity: 0;
+        }
+        span:nth-child(3) {
+            transform: rotate((45deg));
+            bottom: 2rem;
+        }
+    }
+}
+.hamburger {
+    position: relative;
+    display: none;
+    width: 4rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    z-index: 999;
+    @include respond(phone) {
+        display: block;
+    }
+    span {
+        display: block;
+        height: 0.3rem;
+        background: #fff;
+        margin: 0.7rem 0;
+        position: relative;
+        transition: 0.3s linear;
+    }
+}

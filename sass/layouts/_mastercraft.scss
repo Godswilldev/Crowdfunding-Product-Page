@@ -1,0 +1,33 @@
+.body1 {
+    position: relative;
+    margin-top: -5rem;
+}
+
+.mastercraft {
+    &::before {
+        content: url(../images/logo-mastercraft.svg);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: -6rem;
+    }
+    background-color: #fff;
+    border-radius: 3rem;
+    padding: 2rem 10rem;
+    width: 60%;
+    margin: 0 auto;
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 700;
+        padding: 2rem 0;
+    }
+    &__paragraph {
+        font-size: 2rem;
+        color: $Dark-gray;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}

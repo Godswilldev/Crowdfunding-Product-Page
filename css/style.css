@@ -1,4 +1,126 @@
-*, *::before, *::after {
+@charset "UTF-8";
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+/*
+  About
+  Discover
+  Get Started
+
+  Mastercraft Bamboo Monitor Riser
+  A beautiful & handcrafted monitor stand to reduce neck and eye strain.
+
+  Back this project
+  Bookmark
+
+  $89,914 of $100,000 backed
+  5,007 total backers
+  56 days left
+
+  About this project
+
+  The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
+  to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
+  your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
+
+  Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
+  to allow notepads, pens, and USB sticks to be stored under the stand.
+
+  Bamboo Stand
+  Pledge $25 or more
+  You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+  you’ll be added to a special Backer member list.
+  101 left
+  Select Reward
+
+  Black Edition Stand
+  Pledge $75 or more
+  You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+  member list. Shipping is included.
+  64 left
+  Select Reward
+
+  Mahogany Special Edition
+  Pledge $200 or more
+  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+  to our Backer member list. Shipping is included.
+  0 left
+  Out of Stock
+
+  <!-- Selection modal start -->
+
+  Back this project
+  Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+
+  Pledge with no reward
+  Choose to support us without a reward if you simply believe in our project. As a backer,
+  you will be signed up to receive product updates via email.
+
+  Bamboo Stand
+  Pledge $25 or more
+  You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+  you’ll be added to a special Backer member list.
+  101 left
+
+  <!-- Selected pledge start -->
+  Enter your pledge
+  $25
+  Continue
+  <!-- Selected pledge end -->
+
+  Black Edition Stand
+  Pledge $75 or more
+  You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+  member list. Shipping is included.
+  64 left
+
+  <!-- Selected pledge start -->
+  Enter your pledge
+  $75
+  Continue
+  <!-- Selected pledge end -->
+
+  Mahogany Special Edition
+  Pledge $200 or more
+  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+  to our Backer member list. Shipping is included.
+  0 left
+
+  <!-- Selected pledge  start -->
+  Enter your pledge
+  $200
+  Continue
+  <!-- Selected pledge end -->
+
+  <!-- Selection modal end -->
+
+  <!-- Success modal start -->
+
+  Thanks for your support!
+  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+  an email once our campaign is completed.
+  Got it!
+
+  <!-- Success modal end -->
+
+*/
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit; }
@@ -6,7 +128,178 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 45%; } }
 
 body {
-  background-color: green;
-  font-family: 'Commissioner', sans-serif; }
+  background-color: rgba(122, 122, 122, 0.2);
+  font-family: "Commissioner", sans-serif; }
+
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  box-shadow: 0.2rem 0.5rem 2rem rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 2rem 4rem;
+  font-size: 2.5rem;
+  font-weight: 700; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+.btn:active, .btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s; }
+
+.btn__primary {
+  background-color: #3cb4ac;
+  color: #fff; }
+  .btn__primary::after {
+    background-color: #3cb4ac; }
+
+.btn__inactive {
+  padding: 1.5rem 3rem; }
+
+.header {
+  position: relative;
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(../images/image-hero-desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vh;
+  width: 100%; }
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem;
+  margin: 0 15rem; }
+  @media only screen and (max-width: 56.25em) {
+    .navbar {
+      margin: 0 10rem; } }
+  .navbar__logo--img {
+    width: 20rem; }
+  .navbar__links {
+    transition: 0.5s all;
+    position: relative;
+    display: flex;
+    font-size: 2rem;
+    font-weight: 700; }
+    .navbar__links :not(:last-child) {
+      margin-right: 5rem; }
+    .navbar__links a {
+      text-decoration: none;
+      color: #fff; }
+      .navbar__links a:hover {
+        color: #7a7a7a; }
+    .navbar__links li {
+      list-style: none; }
+      @media only screen and (max-width: 56.25em) {
+        .navbar__links li {
+          font-size: 3rem;
+          width: 100%;
+          padding: 3.5rem;
+          padding-bottom: 5rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .navbar__links li:not(:last-child) {
+          border-bottom: 0.2rem solid #7a7a7a; } }
+    @media only screen and (max-width: 37.5em) {
+      .navbar__links {
+        position: fixed;
+        height: 30vh;
+        width: 100%;
+        background-color: white;
+        top: 0;
+        right: -100rem;
+        max-width: 80%;
+        border-radius: 2rem;
+        flex-direction: column;
+        display: none; } }
+
+.hidden .navbar__links {
+  display: block;
+  right: 7rem;
+  top: 10%; }
+  .hidden .navbar__links a {
+    color: black; }
+
+.hidden .hamburger span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 0; }
+
+.hidden .hamburger span:nth-child(2) {
+  opacity: 0; }
+
+.hidden .hamburger span:nth-child(3) {
+  transform: rotate(45deg);
+  bottom: 2rem; }
+
+.hamburger {
+  position: relative;
+  display: none;
+  width: 4rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  z-index: 999; }
+  @media only screen and (max-width: 37.5em) {
+    .hamburger {
+      display: block; } }
+  .hamburger span {
+    display: block;
+    height: 0.3rem;
+    background: #fff;
+    margin: 0.7rem 0;
+    position: relative;
+    transition: 0.3s linear; }
+
+.body1 {
+  position: relative;
+  margin-top: -5rem; }
+
+.mastercraft {
+  background-color: #fff;
+  border-radius: 3rem;
+  padding: 2rem 10rem;
+  width: 60%;
+  margin: 0 auto; }
+  .mastercraft::before {
+    content: url(../images/logo-mastercraft.svg);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: -6rem; }
+  .mastercraft__title {
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 2rem 0; }
+  .mastercraft__paragraph {
+    font-size: 2rem;
+    color: #7a7a7a; }
+  .mastercraft .buttons {
+    display: flex;
+    justify-content: space-between; }

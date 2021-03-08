@@ -1,15 +1,21 @@
-*, *::before, *::after{
-    margin: 0 ;
+*,
+*::before,
+*::after {
+    margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-html{
-    font-size: 62.5%;  
+html {
+    font-size: 62.5%;
     box-sizing: border-box;
+
+    @include respond(tab-port) {
+        font-size: 45%;
+    }
 }
 
-body{
-    background-color: green;
-    font-family: 'Commissioner', sans-serif;
+body {
+    background-color: rgba($Dark-gray, $alpha: 0.2);
+    font-family: "Commissioner", sans-serif;
 }

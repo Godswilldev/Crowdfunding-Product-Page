@@ -1,0 +1,36 @@
+//javaScript toggling of elements
+.hidden {
+    .navbar__links {
+        left: 50%;
+        visibility: visible;
+        opacity: 1;
+    }
+    .hamburger {
+        span {
+            display: block;
+            height: 0.3rem;
+            background: #fff;
+            margin: 0.7rem 0;
+            position: relative;
+            transition: 0.3s linear;
+            &:nth-child(1) {
+                transform: translateY(3px) rotate((405deg));
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(-8px) rotate((-405deg));
+            }
+        }
+    }
+
+    &.projectModal {
+        visibility: hidden;
+        opacity: 0;
+    }
+    &#overlay {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

@@ -146,7 +146,8 @@ body {
   cursor: pointer;
   padding: 2rem 4rem;
   font-size: 2.5rem;
-  font-weight: 700; }
+  font-weight: 700;
+  z-index: 10; }
 
 .btn:hover {
   transform: translateY(-3px);
@@ -181,6 +182,92 @@ body {
 .btn__inactive {
   padding: 1.5rem 3rem; }
 
+.btn__pledge {
+  background-color: #3cb4ac;
+  color: #fff;
+  padding: 2rem 2.5rem;
+  font-weight: 400;
+  font-size: 1.5rem; }
+  .btn__pledge::after {
+    background-color: #3cb4ac; }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: all 0.5s; }
+
+.projectModal {
+  border-radius: 0.7rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70rem;
+  background-color: #f3f3f3;
+  padding: 3rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.5s; }
+  .projectModal__title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-bottom: 1rem; }
+    .projectModal__title p {
+      cursor: pointer; }
+  .projectModal__subtitle {
+    font-size: 2rem;
+    color: #7a7a7a;
+    margin-bottom: 2rem; }
+  .projectModal__pledges .pledge {
+    transition: 0.5s all;
+    border: 1px solid red;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem; }
+    .projectModal__pledges .pledge label {
+      display: flex;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem; }
+      .projectModal__pledges .pledge label h3 {
+        margin-left: 2rem; }
+    .projectModal__pledges .pledge__description {
+      font-size: 1.5rem;
+      color: #7a7a7a;
+      margin-left: 3.7rem;
+      margin-bottom: 1rem;
+      line-height: 2.5rem; }
+    .projectModal__pledges .pledge__price {
+      transition: 0.5s all;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      display: none; }
+      .projectModal__pledges .pledge__price p {
+        font-size: 1.5rem;
+        color: #7a7a7a;
+        font-weight: 600; }
+      .projectModal__pledges .pledge__price input {
+        color: #7a7a7a;
+        outline: none;
+        border-radius: 5rem;
+        width: 10rem;
+        padding: 1rem 2rem;
+        font-size: 3rem;
+        margin-right: 1.2rem; }
+      .projectModal__pledges .pledge__price div {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+  .projectModal__pledges hr {
+    display: none; }
+
 .header {
   position: relative;
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(../images/image-hero-desktop.jpg);
@@ -196,12 +283,17 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 10rem;
-  margin: 0 15rem; }
-  @media only screen and (max-width: 56.25em) {
+  margin: 0 12rem; }
+  @media only screen and (max-width: 75em) {
     .navbar {
       margin: 0 10rem; } }
-  .navbar__logo--img {
-    width: 20rem; }
+  @media only screen and (max-width: 56.25em) {
+    .navbar {
+      margin: 0 5rem; } }
+  .navbar__logo {
+    z-index: 900; }
+    .navbar__logo--img {
+      width: 20rem; }
   .navbar__links {
     transition: 0.5s all;
     position: relative;
@@ -215,57 +307,45 @@ body {
       color: #fff; }
       .navbar__links a:hover {
         color: #7a7a7a; }
+      @media only screen and (max-width: 37.5em) {
+        .navbar__links a {
+          color: black;
+          font-size: 5rem; } }
     .navbar__links li {
       list-style: none; }
       @media only screen and (max-width: 56.25em) {
         .navbar__links li {
-          font-size: 3rem;
-          width: 100%;
-          padding: 3.5rem;
-          padding-bottom: 5rem; } }
+          font-size: 3rem; } }
       @media only screen and (max-width: 37.5em) {
-        .navbar__links li:not(:last-child) {
-          border-bottom: 0.2rem solid #7a7a7a; } }
+        .navbar__links li {
+          text-align: left;
+          margin: 3rem; } }
     @media only screen and (max-width: 37.5em) {
       .navbar__links {
-        position: fixed;
+        z-index: 900;
+        box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+        position: absolute;
         height: 30vh;
         width: 100%;
         background-color: white;
-        top: 0;
-        right: -100rem;
-        max-width: 80%;
-        border-radius: 2rem;
+        top: 50%;
+        left: -50%;
+        transform: translate(-50%, 20%);
+        max-width: 60rem;
+        border-radius: 1.5rem;
         flex-direction: column;
-        display: none; } }
-
-.hidden .navbar__links {
-  display: block;
-  right: 7rem;
-  top: 10%; }
-  .hidden .navbar__links a {
-    color: black; }
-
-.hidden .hamburger span:nth-child(1) {
-  transform: rotate(-45deg);
-  top: 0; }
-
-.hidden .hamburger span:nth-child(2) {
-  opacity: 0; }
-
-.hidden .hamburger span:nth-child(3) {
-  transform: rotate(45deg);
-  bottom: 2rem; }
+        visibility: hidden;
+        opacity: 0; } }
 
 .hamburger {
   position: relative;
-  display: none;
   width: 4rem;
   border: none;
   cursor: pointer;
   outline: none;
   background: none;
-  z-index: 999; }
+  z-index: 900;
+  display: none; }
   @media only screen and (max-width: 37.5em) {
     .hamburger {
       display: block; } }
@@ -284,22 +364,52 @@ body {
 .mastercraft {
   background-color: #fff;
   border-radius: 3rem;
-  padding: 2rem 10rem;
+  padding: 2rem 5rem;
   width: 60%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .mastercraft::before {
     content: url(../images/logo-mastercraft.svg);
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: -6rem; }
+    margin-top: -5rem; }
   .mastercraft__title {
     font-size: 4rem;
     font-weight: 700;
-    padding: 2rem 0; }
+    padding: 2.5rem 0; }
   .mastercraft__paragraph {
     font-size: 2rem;
-    color: #7a7a7a; }
+    color: #7a7a7a;
+    margin-bottom: 5rem; }
   .mastercraft .buttons {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    margin-bottom: 3rem; }
+
+.hidden .navbar__links {
+  left: 50%;
+  visibility: visible;
+  opacity: 1; }
+
+.hidden .hamburger span {
+  display: block;
+  height: 0.3rem;
+  background: #fff;
+  margin: 0.7rem 0;
+  position: relative;
+  transition: 0.3s linear; }
+  .hidden .hamburger span:nth-child(1) {
+    transform: translateY(3px) rotate(405deg); }
+  .hidden .hamburger span:nth-child(2) {
+    opacity: 0; }
+  .hidden .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-405deg); }
+
+.hidden.projectModal {
+  visibility: hidden;
+  opacity: 0; }
+
+.hidden#overlay {
+  visibility: hidden;
+  opacity: 0; }

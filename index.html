@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Crowdfunding product page</title>
-
 </head>
 
 <body>
@@ -45,8 +44,44 @@
         </a>
       </div>
     </section>
-
   </main>
+
+  <div id="overlay" class="hidden">
+
+  </div>
+  <section class="projectModal hidden">
+    <div class="projectModal__title">
+      <h1 class="">Back this project</h1>
+      <p class="closeModal">&#x2716</p>
+    </div>
+    <p class="projectModal__subtitle"> Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
+    </p>
+    <div class="projectModal__pledges">
+      
+      <div class="pledge">
+        <label for="pledge">
+          <input type="radio" name="pledge" id="pledge">
+          <h3>Pledge with no reward</h3>
+        </label>
+        <p class="pledge__description"> Choose to support us without a reward if you simply believe in our project. As a
+          backer,
+          you will be signed up to receive product updates via email.
+        </p>
+        <hr>
+        <div class="pledge__price">
+          <div>
+            <p>Enter your Pledge</p>
+          </div>
+          <div>
+            <input type="number" name="pledgeValue" placeholder="$ " id="pledgeValue">
+            <a href="#"><button class="btn btn__pledge">Continue</button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <script src="index.js"></script>
 </body>
 

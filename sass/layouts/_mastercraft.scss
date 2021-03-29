@@ -9,25 +9,28 @@
         position: relative;
         display: flex;
         justify-content: center;
-        margin-top: -6rem;
+        margin-top: -5rem;
     }
     background-color: #fff;
     border-radius: 3rem;
-    padding: 2rem 10rem;
+    padding: 2rem 5rem;
     width: 60%;
     margin: 0 auto;
+    text-align: center;
 
     &__title {
         font-size: 4rem;
         font-weight: 700;
-        padding: 2rem 0;
+        padding: 2.5rem 0;
     }
     &__paragraph {
         font-size: 2rem;
         color: $Dark-gray;
+        margin-bottom: 5rem;
     }
     .buttons {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 3rem;
     }
 }

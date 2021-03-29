@@ -15,15 +15,19 @@
     justify-content: space-between;
     align-items: center;
     height: 10rem;
-    margin: 0 15rem;
-    @include respond(tab-port) {
+    margin: 0 12rem;
+    @include respond(tab-land) {
         margin: 0 10rem;
     }
-
-    &__logo--img {
-        width: 20rem;
+    @include respond(tab-port) {
+        margin: 0 5rem;
     }
-
+    &__logo {
+        z-index: 900;
+        &--img {
+            width: 20rem;
+        }
+    }
     &__links {
         transition: 0.5s all;
         position: relative;
@@ -36,74 +40,59 @@
         a {
             text-decoration: none;
             color: #fff;
+
             &:hover {
                 color: $Dark-gray;
+            }
+
+            @include respond(phone) {
+                color: rgb(0, 0, 0);
+                font-size: 5rem;
             }
         }
         li {
             list-style: none;
             @include respond(tab-port) {
                 font-size: 3rem;
-                width: 100%;
-                padding: 3.5rem;
-                padding-bottom: 5rem;
             }
             @include respond(phone) {
-                &:not(:last-child) {
-                    border-bottom: 0.2rem solid $Dark-gray;
-                }
+                text-align: left;
+                margin: 3rem;
             }
         }
         @include respond(phone) {
-            position: fixed;
+            z-index: 900;
+            box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+            position: absolute;
             height: 30vh;
             width: 100%;
             background-color: rgb(255, 255, 255);
-            top: 0;
-            right: -100rem;
-            max-width: 80%;
-            border-radius: 2rem;
+            top: 50%;
+            left: -50%;
+            transform: translate(-50%, 20%);
+            max-width: 60rem;
+            border-radius: 1.5rem;
             flex-direction: column;
-            display: none;
-        }
-    }
-}
-.hidden {
-    .navbar__links {
-        display: block;
-        right: 7rem;
-        top: 10%;
-        // display: none;
-        a {
-            color: $Black;
-        }
-    }
-    .hamburger {
-        span:nth-child(1) {
-            transform: rotate((-45deg));
-            top: 0;
-        }
-        span:nth-child(2) {
+
+            // display: none;
+            visibility: hidden;
             opacity: 0;
-        }
-        span:nth-child(3) {
-            transform: rotate((45deg));
-            bottom: 2rem;
         }
     }
 }
 .hamburger {
     position: relative;
-    display: none;
     width: 4rem;
     border: none;
     cursor: pointer;
     outline: none;
     background: none;
-    z-index: 999;
+    z-index: 900;
+    display: none;
     @include respond(phone) {
         display: block;
     }
+
     span {
         display: block;
         height: 0.3rem;
@@ -111,5 +100,15 @@
         margin: 0.7rem 0;
         position: relative;
         transition: 0.3s linear;
+        // &:nth-child(1) {
+        //     transform: rotate((-45deg));
+        // }
+        // &:nth-child(2) {
+        //     opacity: 0;
+        // }
+        // &:nth-child(3) {
+        //     transform: rotate((45deg));
+        //     bottom: 2rem;
+        // }
     }
 }

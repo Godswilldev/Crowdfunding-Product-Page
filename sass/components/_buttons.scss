@@ -12,6 +12,7 @@
         padding: 2rem 4rem;
         font-size: 2.5rem;
         font-weight: 700;
+        z-index: 10;
     }
 
     &:hover {
@@ -55,5 +56,16 @@
 
     &__inactive {
         padding: 1.5rem 3rem;
+    }
+
+    &__pledge {
+        background-color: $Moderate-cyan;
+        color: #fff;
+        padding: 2rem 2.5rem;
+        font-weight: 400;
+        font-size: 1.5rem;
+        &::after {
+            background-color: $Moderate-cyan;
+        }
     }
 }

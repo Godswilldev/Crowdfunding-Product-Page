@@ -191,6 +191,17 @@ body {
   .btn__pledge::after {
     background-color: #3cb4ac; }
 
+.bookmark {
+  display: flex;
+  align-items: center;
+  background-color: rgba(122, 122, 122, 0.4);
+  border-radius: 10rem;
+  padding-right: 3rem; }
+  .bookmark__text {
+    font-size: 2.5rem;
+    opacity: 0.6;
+    padding-left: 2rem; }
+
 #overlay {
   position: fixed;
   top: 0;
@@ -306,7 +317,7 @@ body {
       text-decoration: none;
       color: #fff; }
       .navbar__links a:hover {
-        color: #7a7a7a; }
+        font-size: 1.8rem; }
       @media only screen and (max-width: 37.5em) {
         .navbar__links a {
           color: black;
@@ -359,11 +370,11 @@ body {
 
 .body1 {
   position: relative;
-  margin-top: -5rem; }
+  margin-top: -10rem; }
 
 .mastercraft {
   background-color: #fff;
-  border-radius: 3rem;
+  border-radius: 1.5rem;
   padding: 2rem 5rem;
   width: 60%;
   margin: 0 auto;

@@ -42,7 +42,7 @@
             color: #fff;
 
             &:hover {
-                color: $Dark-gray;
+                font-size: 1.8rem;
             }
 
             @include respond(phone) {
@@ -100,15 +100,5 @@
         margin: 0.7rem 0;
         position: relative;
         transition: 0.3s linear;
-        // &:nth-child(1) {
-        //     transform: rotate((-45deg));
-        // }
-        // &:nth-child(2) {
-        //     opacity: 0;
-        // }
-        // &:nth-child(3) {
-        //     transform: rotate((45deg));
-        //     bottom: 2rem;
-        // }
     }
 }

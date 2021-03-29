@@ -2,6 +2,7 @@ let hamburger = document.querySelector(".hamburger");
 let navbar = document.querySelector(".navbar");
 let btn_primary = document.querySelector(".btn__primary");
 let overlay = document.querySelector("#overlay");
+let btn_bookmark = document.querySelector(`.btn__bookmark svg path`);
 let close_Modal = document.querySelector(".closeModal");
 let projectModal = document.querySelector(".projectModal");
 let pledge = document.querySelectorAll(".pledge");
@@ -32,4 +33,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key == "Escape") {
     closeModal();
   }
+});
+
+///bookmark toggle
+btn_bookmark.addEventListener("click", () => {
+  btn_bookmark.classList.toggle("hidden");
 });
